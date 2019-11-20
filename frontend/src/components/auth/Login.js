@@ -7,8 +7,9 @@ class Login extends Component {
         this.state = {
             username: "",
             password: ""
-        }
+        };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
     handleChange(event) {
         this.setState({
@@ -19,16 +20,20 @@ class Login extends Component {
         const { username, password } = this.state;
         axios
             .post(
-                'localhost:8000/api/login/',
+                'http://localhost:8000/api/login/',
                 {
                     user: {
                         username: username,
                         password: password
                     }
-                }
+                },
+                { withCredentials: true }
              )
             .then()
-            .catch()
+            .catch(err => {
+                console.log("error login", err)
+            });
+        event.preventDefault();
     }
     render() {
         return (
@@ -54,4 +59,5 @@ class Login extends Component {
         )
     }
 }
+
 export default Login;
