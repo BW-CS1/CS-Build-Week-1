@@ -49,11 +49,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
-<<<<<<< HEAD
-    'graphene_django'
-=======
     'frontend'
->>>>>>> c8c453974e6a3dab24b5588b8549446364cd21f3
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
