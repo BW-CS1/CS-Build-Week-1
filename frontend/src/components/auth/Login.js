@@ -20,16 +20,16 @@ class Login extends Component {
         const { username, password } = this.state;
         axios
             .post(
-                'http://localhost:8000/api/login/',
+                'http://127.0.0.1:8000/api/login/',
                 {
-                    user: {
-                        username: username,
-                        password: password
-                    }
+                    username: username,
+                    password: password
                 },
                 { withCredentials: true }
-             )
-            .then()
+                )
+            .then(res => {
+                console.log(res)
+            })
             .catch(err => {
                 console.log("error login", err)
             });

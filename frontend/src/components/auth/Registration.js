@@ -22,17 +22,17 @@ class Registration extends Component {
 
         axios
             .post(
-                'http://localhost:8000/api/registration/',
+                'http://127.0.0.1:8000/api/registration/',
                 {
-                    user: {
-                        username: username,
-                        password1: password1,
-                        password2: password2
-                    }
+                    username: username,
+                    password1: password1,
+                    password2: password2
                 },
                 { withCredentials: true }
             )
-            .then()
+            .then(res => {
+                console.log(res)
+            })
             .catch(err => {
                 console.log("error reg", err)
             });
