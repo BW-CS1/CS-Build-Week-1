@@ -1,12 +1,46 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import Header from './layout/Header'
+import Home from './Home'
+import Dashboard from './Dashboard';
 
 class App extends Component {
+    constructor() {
+        super();
+        this.state = {
+            user: {},
+            loggedIn: false,
+            user: {}
+        }
+    }
     render() {
         return (
-            <Header />
-            )
+            <div>
+                <Router>
+                    <Switch>
+                        <Route
+                            exact path={"/"}
+                            render={props => (
+                                <Home
+                                    {...props}
+                                    handleLogin={this.handleLogin}
+                                    handleLogout={this.handleLogout}
+                                    loggedIn={this.state.loggedIn}
+                                />
+                            )}
+                        />
+                        <Route
+                            exact path={"/dashboard"}
+                            render={props => (
+                                <Dashboard
+                                    {...props}
+                                    loggedIn={this.state.loggedIn}
+                                />
+                            )}
+                        />
+                    </Switch>
+                </Router>
+            </div>
+        )
     }
 }
 
