@@ -1,13 +1,25 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
-import Header from './layout/Header'
+import React, { Component, Fragment } from "react";
+
+import { Route } from "react-router-dom";
+
+import Header from "./layout/Header";
+import Login from "./layout/login";
+import Register from "./layout/register";
 
 class App extends Component {
-    render() {
-        return (
-            <Header />
-            )
-    }
+  render() {
+    return (
+      <div>
+        <div>
+          <Header />
+        </div>
+        <Fragment>
+          <Route exact path="/" component={Login} />
+          <Route path="/register" component={Register} />
+        </Fragment>
+      </div>
+    );
+  }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'))
+export default App;
